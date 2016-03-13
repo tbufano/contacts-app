@@ -41,4 +41,11 @@ class ContactsController < ApplicationController
     )
     render = "update.html.erb"
   end
+
+  def destroy
+    contact_id = params[:id]
+    @contact = Contact.find_by(id: contact_id)
+    @contact.destroy
+    render "destroy.html.erb"
+  end
 end
