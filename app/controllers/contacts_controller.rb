@@ -9,6 +9,10 @@ class ContactsController < ApplicationController
   end
 
   def create
+    address = params[:address]
+    if address.nil?
+      address = "2413 S Western Ave, Chicago, IL, 60608"
+    end
     Contact.create(
       first_name: params[:first_name],
       middle_name: params[:middle_name],
@@ -16,7 +20,8 @@ class ContactsController < ApplicationController
       email: params[:email],
       phone_number: params[:phone_number],
       bio: params[:bio],
-      address: params[:address]
+      address: params[:address],
+      user_id: current_user.id
     )
     render = "create.html.erb"
   end
