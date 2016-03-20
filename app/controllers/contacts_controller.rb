@@ -1,11 +1,10 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all
-    render = "index.html.erb"
+    # @contacts = Contact.all
+    @contacts = current_user.contacts
   end
 
   def new
-    render = "new.html.erb"
   end
 
   def create
