@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :contacts
+  has_many :grouped_contacts
+  has_many :groups, through: :grouped_contacts
 end

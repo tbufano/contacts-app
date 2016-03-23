@@ -1,8 +1,11 @@
-<h1>Contact</h1>
-<hr>
-<p><strong>Name:</strong> <%= @contact.full_name %></p>
-<p><strong>Email:</strong> <%= @contact.email %></p>
-<p><strong>Phone Number:</strong> <%= @contact.japan_phone %></p>
-<p><strong>Last Updated:</strong> <%= @contact.friendly_updated_at %></p>
 
-<p><%= link_to "Destroy Product", "/contacts/#{@contact.id}", method: :delete %></p>
+<div class = "container">
+  <h1>Contact</h1>
+  <hr>
+  <p><strong>Name:</strong> <%= @contact.full_name %></p>
+  <p><strong>Email:</strong> <%= @contact.email %></p>
+  <p><strong>Phone Number:</strong> <%= @contact.japan_phone %></p>
+  <p><strong>Last Updated:</strong> <%= @contact.friendly_updated_at %></p>
+
+  <p><%= link_to "Remove Contact", "/contacts/#{@contact.id}", method: :delete %></p>
+</div>
