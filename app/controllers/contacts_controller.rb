@@ -1,7 +1,11 @@
 class ContactsController < ApplicationController
   def index
     # @contacts = Contact.all
-    @contacts = current_user.contacts
+    if current_user
+      @contacts = current_user.contacts
+    else
+      redirect_to "/users/sign_in"
+    end
   end
 
   def new
@@ -26,9 +30,12 @@ class ContactsController < ApplicationController
   end
 
   def show
-    contact_id = params[:id]
-    @contact = Contact.find_by(id: contact_id)
-    render = "show.html.erb"
+    if current_user
+      contact_id = params[:id]
+      @contact = Contact.find_by(id: contact_id)
+    else
+      redirect_to "/users/sign_in"
+    end
   end
 
   def edit
